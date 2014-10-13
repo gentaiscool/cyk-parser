@@ -1,0 +1,48 @@
+S
+
+// Grammar
+S -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Noun TBEx | NounEx ModAdj | S2 LogicNegEx
+LogicNegEx -> LogicExpNeg S2
+S2 -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Noun TBEx | NounEx ModAdj
+TBEx -> TB NPronoun
+NPronoun -> Noun Pronoun
+
+ModV -> Modal Verb
+ModVPlace -> ModV PrepPlace
+ModAdj -> Modal Adj
+
+VTimePlace -> Verb OccurPlace
+OccurPlace -> Occur Place | Occur PrepPlace | Day PrepPlace 
+
+PrepPlace -> Prep Place
+NounEx -> Noun LNoun | Noun Pronoun
+
+// Lexicon
+Pronoun -> saya | pamanku
+Verb -> berenang | tinggal | mau | suka | melakukannya
+
+Noun -> ubi | bisa | berenang | hobi | NounEx
+//Living Noun
+NounEx -> BNoun LNoun
+LNoun -> ular
+BNoun -> bisa
+Modal -> bisa
+
+Place -> sabuga | sungai | desa | desanya
+Day -> minggu | BDay Day
+BDay -> tiap
+
+TB -> adalah | ialah
+
+BAdj -> bisa | sangat | memang
+Adj -> mematikan | aneh | takut
+Occur -> sering
+
+LogicExpNeg -> tapi
+LogicExpPos -> karena
+LoginExpNeu -> dan | sambil
+
+Det -> dengan
+Prep -> di
+Negasi -> tidak
+
