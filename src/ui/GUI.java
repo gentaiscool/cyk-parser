@@ -59,7 +59,6 @@ public class GUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Tuple<Boolean, ArrayList<Node>, Integer> tuples;
 				frame.remove(treeView);
-				lblResult.setText("Kalimat Tidak Valid");
 				try {
 					frame.remove(treeView);
 					Main compute = new Main(textField.getText());
@@ -77,7 +76,9 @@ public class GUI extends JFrame {
 					} else {
 						lblResult.setText("Kalimat Tidak Valid");
 					}
-				} catch (IOException e1) {
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					lblResult.setText("Kalimat Tidak Valid");
 					e1.printStackTrace();
 				}
 			}
