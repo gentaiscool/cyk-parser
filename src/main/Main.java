@@ -6,13 +6,17 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import model.Grammar;
+import model.Node;
+import model.Tuple;
 import controller.CYKParser;
 import controller.InputParser;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
+	private Tuple<Boolean, ArrayList<Node>, Integer> result;
+	
+	public Main() throws IOException {
+		// TODO Auto-generated constructor stub
 		Character[] delimiter = new Character[]{'.',',','!','[',']'};
 		
 		InputParser ip = new InputParser();
@@ -31,7 +35,16 @@ public class Main {
 		
 		CYKParser parser = new CYKParser();
 		System.out.println(grammar.getStartSymbol().getName() + " " + grammar.getNonTerminals().size());
-		System.out.println(parser.parse(grammar, strs));
+		
+		result = parser.parse(grammar, strs);
+	}
+
+	public Tuple<Boolean, ArrayList<Node>, Integer> getResult() {
+		return result;
+	}
+
+	public void setResult(Tuple<Boolean, ArrayList<Node>, Integer> result) {
+		this.result = result;
 	}
 
 }

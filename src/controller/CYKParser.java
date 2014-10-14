@@ -1,13 +1,14 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import model.Grammar;
+import model.Node;
 import model.NonTerminal;
 import model.NonTerminalProduction;
-import model.Production;
-import model.Terminal;
 import model.TerminalProduction;
+import model.Tuple;
 
 public class CYKParser {
 	/*let the input be a string S consisting of n characters: a1 ... an.
@@ -28,12 +29,22 @@ public class CYKParser {
 	  S is not member of language*/
 	
 	private Grammar grammar;
+	private ArrayList<Node> nodes;
+	private HashMap<String, Integer> map;
 	
-	public boolean parse(Grammar grammar, ArrayList<String> strs){
+	public Tuple<Boolean, ArrayList<Node>, Integer> parse(Grammar grammar, ArrayList<String> strs){
 		NonTerminal cat = grammar.getStartSymbol();
+		nodes = new ArrayList<Node>();
+
+		map = new HashMap<String, Integer>();
+		
 		ArrayList<TerminalProduction> tp = grammar.getTerminalProduction();
 		ArrayList<NonTerminalProduction> ntp = grammar.getNonTerminalProduction();
 		ArrayList<NonTerminal> nt = grammar.getNonTerminals();
+		
+		for(int i=0; i<nt.size(); i++){
+			nodes.add(new Node());
+		}
 		
 		this.grammar = grammar;
 		boolean[][][] arr = new boolean[strs.size()+1][strs.size()+1][nt.size()+1];
@@ -83,7 +94,27 @@ public class CYKParser {
 						//System.out.println("[1]" + j + " " + k + " " + B);
 						//System.out.println("[2]" + (j+k) + " " + (i-k) + " " + C);
 						if(arr[j][k][B] && arr[j+k][i-k][C]){
-							//System.out.println("true");
+							if(!map.containsKey(nt.get(A).getName())){
+								map.put(nt.get(A).getName(), A);
+								Node node = nodes.get(A-1);
+								node.setLeaf(false); 
+								node.setLeft(nodes.get(B-1));
+								node.setRight(nodes.get(C-1));
+								node.setName(nt.get(A).getName());
+								System.out.println(node.getName());
+							}
+							if(!map.containsKey(nt.get(B))){
+								map.put(nt.get(B).getName(), B);
+								Node node = nodes.get(B-1);
+								node.setName(nt.get(B).getName());
+								//System.out.println(node.getName());
+							}
+							if(!map.containsKey(nt.get(C))){
+								map.put(nt.get(C).getName(), C);
+								Node node = nodes.get(C-1);
+								node.setName(nt.get(C).getName());
+								//System.out.println(node.getName());
+							}
 							arr[j][i][A] = true;
 						}
 					}
@@ -99,7 +130,8 @@ public class CYKParser {
 			}
 		}
 		
+		System.out.println(arr[1][strs.size()][idx]);
 		//System.out.println((nt.size()-1) + " " + idx + " " + cat + " " + (strs.size()-1));
-		return arr[1][strs.size()][idx];
+		return new Tuple<Boolean, ArrayList<Node>, Integer>(arr[1][strs.size()][idx], nodes, strs.size());
 	}
 }
