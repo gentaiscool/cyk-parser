@@ -1,32 +1,51 @@
 S
 
 // Grammar
-S -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Noun TBEx | NounEx ModAdj | S2 LogicNegEx
+S -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Pronoun AdjN | PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Noun TBEx | NounEx ModAdj | S2 LogicNegEx | S2 LogicPosEx
 LogicNegEx -> LogicExpNeg S2
-S2 -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Noun TBEx | NounEx ModAdj
+LogicPosEx -> LogicExpPos S2 | LogicExpPos AdjN
+S2 -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Pronoun AdjN | PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Noun TBEx | NounEx ModAdj
 TBEx -> TB NPronoun
 NPronoun -> Noun Pronoun
 
-ModV -> Modal Verb
+PronounEx -> Pronoun YangEx
+
 ModVPlace -> ModV PrepPlace
+ModV -> Modal Verb | Modal VEx | NegModal Verb | NegModal VEx
 ModAdj -> Modal Adj
 
+NegVerb -> Negasi Verb
+NegModal -> Negasi Modal
+
+VEx -> Verb LogV | VN LogV
+VN -> Verb Noun
+LogV -> LogicExpNeu VN | LogicExpNeu VEx
+
+VPlace -> Verb PlaceEx
+VPrepPlace -> Verb PrepPlace
 VTimePlace -> Verb OccurPlace
 OccurPlace -> Occur Place | Occur PrepPlace | Day PrepPlace 
+PlaceEx -> Place YangEx
+YangEx -> Yang AdaPlace | Yang VPrepPlace
+AdaPlace -> Ada PrepPlace
 
-PrepPlace -> Prep Place
-NounEx -> Noun LNoun | Noun Pronoun
+AdjN -> Adj Noun | Adj AdaEx 
+AdaEx -> Ada NounEx
+
+PrepPlace -> Prep Place | Prep PlaceEx
+NounEx -> Noun LNoun | Noun Pronoun | Noun DetNoun 
+DetNoun -> Det Noun
 
 // Lexicon
 Pronoun -> saya | pamanku
-Verb -> berenang | tinggal | mau | suka | melakukannya
+Verb -> berenang | tinggal | mau | suka | melakukannya | makan
 
-Noun -> ubi | bisa | berenang | hobi | NounEx
+Noun -> ubi | bisa | berenang | hobi | ular | NounEx
 //Living Noun
 NounEx -> BNoun LNoun
 LNoun -> ular
 BNoun -> bisa
-Modal -> bisa
+Modal -> bisa | mau | suka
 
 Place -> sabuga | sungai | desa | desanya
 Day -> minggu | BDay Day
@@ -40,9 +59,11 @@ Occur -> sering
 
 LogicExpNeg -> tapi
 LogicExpPos -> karena
-LoginExpNeu -> dan | sambil
+LogicExpNeu -> dan | sambil
 
 Det -> dengan
 Prep -> di
 Negasi -> tidak
 
+Ada -> ada
+Yang -> yang
