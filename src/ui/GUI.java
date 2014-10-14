@@ -59,8 +59,8 @@ public class GUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Tuple<Boolean, ArrayList<Node>, Integer> tuples;
 				frame.remove(treeView);
-				lblResult.setText("...");
 				try {
+					frame.remove(treeView);
 					Main compute = new Main(textField.getText());
 					tuples = compute.getResult();
 					int index = tuples.getC();
