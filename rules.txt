@@ -1,30 +1,35 @@
 S
 
 // Grammar
-S -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Pronoun AdjN | PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Noun TBEx | NounEx ModAdj | S2 LogicNegEx | S2 LogicPosEx
+S -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Pronoun AdjN | PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Pronoun NegAdj | Noun TBEx | NounEx ModAdj | Pronoun AdjN | VEx TBEx | Pronoun OccurVerb | S2 LogV | S2 LogicNegEx | S2 LogicPosEx 
 LogicNegEx -> LogicExpNeg S2
 LogicPosEx -> LogicExpPos S2 | LogicExpPos AdjN
-S2 -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Pronoun AdjN | PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Noun TBEx | NounEx ModAdj
-TBEx -> TB NPronoun
+S2 -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Pronoun AdjN | PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Pronoun NegAdj | Noun TBEx | NounEx ModAdj | Pronoun AdjN | VEx TBEx | Pronoun OccurVerb 
+TBEx -> TB NPronoun | TB BAdjSuper
 NPronoun -> Noun Pronoun
+
+BAdjSuper -> BAdj Adj
 
 PronounEx -> Pronoun YangEx
 
 ModVPlace -> ModV PrepPlace
 ModV -> Modal Verb | Modal VEx | NegModal Verb | NegModal VEx
-ModAdj -> Modal Adj
+ModAdj -> Modal Adj | Modal AdjN | Modal NegAdj
+
+NegAdj -> Negasi AdjN | Negasi Adj
 
 NegVerb -> Negasi Verb
 NegModal -> Negasi Modal
 
 VEx -> Verb LogV | VN LogV
 VN -> Verb Noun
-LogV -> LogicExpNeu VN | LogicExpNeu VEx
+LogV -> LogicExpNeu VN | LogicExpNeu Verb | LogicExpNeu VEx | LogicExpNeu S2
 
 VPlace -> Verb PlaceEx
 VPrepPlace -> Verb PrepPlace
 VTimePlace -> Verb OccurPlace
-OccurPlace -> Occur Place | Occur PrepPlace | Day PrepPlace 
+OccurPlace -> Occur Place | Occur PrepPlace | Day PrepPlace
+OccurVerb -> Occur Verb 
 PlaceEx -> Place YangEx
 YangEx -> Yang AdaPlace | Yang VPrepPlace
 AdaPlace -> Ada PrepPlace
@@ -37,10 +42,10 @@ NounEx -> Noun LNoun | Noun Pronoun | Noun DetNoun
 DetNoun -> Det Noun
 
 // Lexicon
-Pronoun -> saya | pamanku
+Pronoun -> saya | pamanku | dia
 Verb -> berenang | tinggal | mau | suka | melakukannya | makan
 
-Noun -> ubi | bisa | berenang | hobi | ular | NounEx
+Noun -> ubi | bisa | berenang | hobi | ular | NounEx | apapun
 //Living Noun
 NounEx -> BNoun LNoun
 LNoun -> ular
@@ -51,7 +56,7 @@ Place -> sabuga | sungai | desa | desanya
 Day -> minggu | BDay Day
 BDay -> tiap
 
-TB -> adalah | ialah
+TB -> adalah | ialah | itu
 
 BAdj -> bisa | sangat | memang
 Adj -> mematikan | aneh | takut
