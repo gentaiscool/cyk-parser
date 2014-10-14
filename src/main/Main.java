@@ -25,8 +25,12 @@ public class Main {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		String input = in.readLine();
 		for(int i=0; i<delimiter.length; i++){
-			input = input.replace(delimiter[i], ' ');
+			for(int j=0; j<input.length(); j++){
+				if(input.charAt(j) == delimiter[i])
+					input = input.substring(0, j) + input.substring(j+1);
+			}
 		}
+		//System.out.println(input);
 		String[] arr = input.toLowerCase().trim().split(" ");
 		ArrayList<String> strs = new ArrayList<String>();
 		for(int i=0; i<arr.length; i++){
@@ -34,9 +38,14 @@ public class Main {
 		}
 		
 		CYKParser parser = new CYKParser();
-		System.out.println(grammar.getStartSymbol().getName() + " " + grammar.getNonTerminals().size());
+		//System.out.println(grammar.getStartSymbol().getName() + " " + grammar.getNonTerminals().size());
 		
 		result = parser.parse(grammar, strs);
+		if(result.getA()){
+			System.out.println("Sentence is valid");
+		} else{
+			System.out.println("Sentence is not valid");
+		}
 	}
 
 	public Tuple<Boolean, ArrayList<Node>, Integer> getResult() {

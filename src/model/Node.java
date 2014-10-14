@@ -12,7 +12,7 @@ public class Node {
 		left = null;
 		right = null;
 		name = "";
-		isLeaf = true;
+		isLeaf = false;
 	}
 
 	public Node(String name, Node left, Node right){
@@ -26,6 +26,7 @@ public class Node {
 
         nodeTree = new DefaultMutableTreeNode(top.getName());
         if (!top.isLeaf) {
+        	//System.out.println(top.getLeft().getName() + " " + top.getRight().getName());
 	        nodeTree.add(makeSubTree(top.getLeft()));
 	        nodeTree.add(makeSubTree(top.getRight()));
         }
