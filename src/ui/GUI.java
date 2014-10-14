@@ -76,8 +76,9 @@ public class GUI extends JFrame {
 					} else {
 						lblResult.setText("Kalimat Tidak Valid");
 					}
-				} catch (IOException e1) {
+				} catch (Exception e1) {
 					// TODO Auto-generated catch block
+					lblResult.setText("Kalimat Tidak Valid");
 					e1.printStackTrace();
 				}
 			}

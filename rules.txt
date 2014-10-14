@@ -1,11 +1,11 @@
 S
 
 // Grammar
-S -> Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Pronoun AdjN | PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Pronoun NegAdj | Noun TBEx | NounEx ModAdj | Pronoun AdjN | VEx TBEx | Pronoun OccurVerb | S2 LogV | S2 LogicNegEx | S2 LogicPosEx | S2 LogicNeuEx 
+S -> Pronoun VN | Pronoun NegVerbN | Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace | Pronoun AdjN | PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Pronoun NegAdj | Noun TBEx | NounEx ModAdj | Pronoun AdjN | VEx TBEx | Pronoun OccurVerb | S2 LogV | S2 LogicNegEx | S2 LogicPosEx | S2 LogicNeuEx 
 LogicNegEx -> LogicExpNeg S2
 LogicPosEx -> LogicExpPos S2 | LogicExpPos AdjN
 LogicNeuEx -> LogicExpNeu S2
-S2 -> Pronoun AdjN | Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace |  PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Pronoun NegAdj | Noun TBEx | NounEx ModAdj | VEx TBEx | Pronoun OccurVerb | Pronoun YangVEx
+S2 -> Pronoun VN | Pronoun NegVerbN | Pronoun AdjN | Pronoun ModV | Pronoun ModVPlace | Pronoun VTimePlace |  PronounEx ModV | PronounEx ModVPlace | PronounEx VTimePlace | PronounEx AdjN | Pronoun NegAdj | Noun TBEx | NounEx ModAdj | VEx TBEx | Pronoun OccurVerb | Pronoun YangVEx
 TBEx -> TB NPronoun | TB BAdjSuper
 NPronoun -> Noun Pronoun
 
@@ -19,11 +19,13 @@ ModAdj -> Modal Adj | Modal AdjN | Modal NegAdj
 
 NegAdj -> Negasi AdjN | Negasi Adj
 
+NegVerbN -> NegVerb Noun
 NegVerb -> Negasi Verb
 NegModal -> Negasi Modal
 
 VEx -> Verb LogV | VN LogV
 VN -> Verb Noun
+
 LogV -> LogicExpNeu VN | LogicExpNeu Verb | LogicExpNeu VEx | LogicExpNeu NegAdj
 
 VPlace -> Verb PlaceEx
