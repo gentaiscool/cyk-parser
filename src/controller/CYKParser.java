@@ -100,19 +100,19 @@ public class CYKParser {
 								node.setLeaf(false); 
 								node.setLeft(nodes.get(B-1));
 								node.setRight(nodes.get(C-1));
-								node.setName(nt.get(A).getName());
+								node.setName(nt.get(A-1).getName());
 								System.out.println(node.getName());
 							}
 							if(!map.containsKey(nt.get(B))){
 								map.put(nt.get(B).getName(), B);
 								Node node = nodes.get(B-1);
-								node.setName(nt.get(B).getName());
+								node.setName(nt.get(B-1).getName());
 								//System.out.println(node.getName());
 							}
 							if(!map.containsKey(nt.get(C))){
 								map.put(nt.get(C).getName(), C);
 								Node node = nodes.get(C-1);
-								node.setName(nt.get(C).getName());
+								node.setName(nt.get(C-1).getName());
 								//System.out.println(node.getName());
 							}
 							arr[j][i][A] = true;
@@ -130,7 +130,7 @@ public class CYKParser {
 			}
 		}
 		
-		System.out.println(arr[1][strs.size()][idx]);
+		System.out.println(arr[1][strs.size()][idx] + " " + nt.get(strs.size()).getName());
 		//System.out.println((nt.size()-1) + " " + idx + " " + cat + " " + (strs.size()-1));
 		return new Tuple<Boolean, ArrayList<Node>, Integer>(arr[1][strs.size()][idx], nodes, strs.size());
 	}

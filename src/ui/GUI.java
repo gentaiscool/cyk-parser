@@ -28,7 +28,7 @@ public class GUI extends JFrame {
 		Tuple<Boolean, ArrayList<Node>, Integer> tuples = new Main()
 				.getResult();
 		int index = tuples.getC();
-		Node node = tuples.getB().get(index - 1);
+		Node node = tuples.getB().get(index);
 		tree = new JTree(node.makeTree());
 
 		JScrollPane treeView = new JScrollPane(tree);
