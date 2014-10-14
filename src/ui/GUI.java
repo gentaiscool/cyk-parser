@@ -43,6 +43,7 @@ public class GUI extends JFrame {
 				.getResult();
 		int index = tuples.getC();
 		Node node = tuples.getB().get(index);
+		//System.out.println("haha>>" + node.getName());
 		tree = new JTree(node.makeTree());
 		JScrollPane treeView = new JScrollPane(tree);
 		frame.add(treeView);

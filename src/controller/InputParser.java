@@ -40,7 +40,6 @@ public class InputParser {
 						NonTerminal nt = null, nt2 = null;
 						Terminal t;
 						String[] s = rhs[i].trim().split(" ");
-						System.out.println("s >> " + s.length);
 						ArrayList<Symbol> arr = new ArrayList<Symbol>();
 						if (s.length > 1) {
 							if (s[0].charAt(0) >= 'A' && s[0].charAt(0) <= 'Z') {
