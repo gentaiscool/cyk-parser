@@ -1,22 +1,27 @@
+# Cocke–Younger–Kasami Algorithm Parser
+
+## Update rules
+You can updates rules on <b>rules.txt</b> in regular form
+1. Non-Terminal production (starts with upper case)
+```
+ModVPlace -> ModV PrepPlace
+```
+2. Terminal production (in lower case)
+```
+PrepPlace -> in
+```
+
+## Run the code
+- <b>rules.txt</b> must be placed in the same directory as <b>parser.jar</b>
+- Run the following command
+```
+java -jar parser.jar
+```
+- Type your sentence and press <b>Cek</b> button.
+
+## Authors
 Sonny Lazuardi Hermawan (13511029)
 Genta Indra Winata (13511094)
 
-# Petunjuk Penggunaan
-
-File rules.txt harus berada pada direktori yang sama dengan parser.jar
-
-Jalankan program dengan mengetikkan perintah berikut
-
-    java -jar parser.jar
-
-Masukkan kalimat yang akan diproses pada text input aplikasi. Tekan tombol 'Cek' untuk memulai proses. Setelah itu, akan muncul hasil kalimat itu sesuai grammar atau tidak. Lalu, akan muncul tree yang merupakan struktur CYK.
-
-Untuk mengubah rule, edit file rules.txt. Rule ditulis dalam bentuk regular form CYK. Contohnya adalah sebagai berikut.
-
-    ModVPlace -> ModV PrepPlace
-    ModV -> Modal Verb | Modal VEx | NegModal Verb | NegModal VEx
-    ModAdj -> Modal Adj | Modal AdjN | Modal NegAdj
-
-
-
-
+## Note
+Natural Language Processing Assignment in Institut Teknologi Bandung
