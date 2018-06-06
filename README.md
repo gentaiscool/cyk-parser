@@ -20,8 +20,8 @@ java -jar parser.jar
 - Type your sentence and press <b>Cek</b> button.
 
 ## Authors
-Sonny Lazuardi Hermawan (13511029)
-Genta Indra Winata (13511094)
+- Genta Indra Winata
+- Sonny Lazuardi
 
 ## Note
 Natural Language Processing Assignment in Institut Teknologi Bandung
