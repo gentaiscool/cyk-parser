@@ -1,17 +1,17 @@
 # Cocke–Younger–Kasami Algorithm Parser
-This project shows the implementation of CYK algorithm in Java. It is a bottom-up parsing using dynamic programming paradigm with <b>O(n^3.|G|)</b> time complexity where <b>n</b> is the length of the string and <b>G</b> is the size of the Chomsky Normal Form (CNF) grammars. We also provide the GUI for the visualization.
+This project shows the implementation of CYK algorithm in Java. It is a bottom-up parsing using dynamic programming paradigm with <b>O(n^3.|G|)</b> time complexity where <b>n</b> is the length of the string and <b>G</b> is the size of the Chomsky Normal Form (CNF) grammars. We also provide a GUI for the visualization.
 
 ## Requirement
 - Java 7 (or later)
 - (Optional) Eclipse IDE
 
 ## Update rules
-The rules are in <b>rules.txt</b>. They are written in context free grammar standard form. 
-1. Non-Terminal production (starts with upper case)
+The rules are in <b>rules.txt</b>. They are written in Context Free Grammar (CFG) standard form. 
+1. Non-Terminal production (left and right: starts with upper case)
 ```
 ModVPlace -> ModV PrepPlace
 ```
-2. Terminal production (in lower case)
+2. Terminal production (left: starts with upper case, right: lower case)
 ```
 PrepPlace -> in
 ```
